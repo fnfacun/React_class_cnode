@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import Index from '../views/index/index';
 import About from '../views/about/index';
 import Book from '../views/book/index';
-import Detail from '../views/detail/index';
+import Details from '../views/details/index';
 import User from '../views/user/index';
 
 const routerList = [
@@ -12,14 +12,14 @@ const routerList = [
         name: '首页',
         exact: true,
         render: () => {
-            return <Redirect to="index" />
+            return <Redirect to="/index/all" />
         }
     },
     {
-        path: '/index',
+        path: '/index/:id',
         exact: true,
-        render: () => {
-            return <Index />
+        render: (props) => {
+            return <Index {...props} />
         }
     },
     {
@@ -37,10 +37,10 @@ const routerList = [
         }
     },
     {
-        path: '/detail',
+        path: '/details',
         exact: true,
         render: () => {
-            return <Detail />
+            return <Details />
         }
     },
     {

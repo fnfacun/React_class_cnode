@@ -7,7 +7,7 @@ function Nav(props) {
     let { id, mode } = props;
     return (<Menu id={id} mode={mode}>
         <Menu.Item>
-            <Link to="/index"><HomeOutlined />首页</Link>
+            <Link to="/index/all"><HomeOutlined />首页</Link>
         </Menu.Item>
         <Menu.Item>
             <Link to="/book"><BookOutlined />教程</Link>

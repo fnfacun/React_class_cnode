@@ -6,7 +6,7 @@ function IndexMenu(props) {
     let { id, mode } = props;
     return (<Menu id={id} mode={mode}>
         <Menu.Item className="ant-menu-item-selected">
-            <Link to="/index/ask">全部</Link>
+            <Link to="/index/all">全部</Link>
         </Menu.Item>
         <Menu.Item>
             <Link to="/index/good">精华</Link>
