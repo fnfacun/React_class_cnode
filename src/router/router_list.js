@@ -37,7 +37,7 @@ const routerList = [
         }
     },
     {
-        path: '/details',
+        path: '/details/:id',
         exact: true,
         render: () => {
             return <Details />

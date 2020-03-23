@@ -1,8 +1,10 @@
 import React from 'react';
+import data from './data';
+import PublicCard from '../../common/components/public_card';
 
 function About() {
     return (
-        <div>about</div>
+        <PublicCard data={data} />
     )
 };
 
