@@ -44,7 +44,7 @@ const routerList = [
         }
     },
     {
-        path: '/user',
+        path: '/user/:id',
         exact: true,
         render: () => {
             return <User />

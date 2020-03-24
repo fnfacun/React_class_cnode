@@ -13,6 +13,9 @@
     max-width: 980px;
     margin: 0 auto;
 }
+.wrap img {
+    max-width: 100%;
+}
 .wrap .headerDivider {
     float: left;
     margin: 10px 0;
@@ -20,7 +23,7 @@
 }
 .wrap .xsNav {
     position: absolute;
-    right: 50px;
+    right: 40px;
     top: 0;
     width: auto;
 }
@@ -83,27 +86,56 @@
 .indexList p {
     margin: 0;
 }
-/* @media all and (max-width: 767px) {
-    #indexMenu {
-        display: flex;
-        border-bottom: 1px solid #ccc;
-    }
-    #indexMenu li {
-        flex: 1;
-        margin: 0 0 -1px 0;
-        border: none;
-        border-bottom: 3px solid rgba(0, 0, 0, 0);
-    }
-    #indexMenu li:hover,
-    #indexMenu .ant-menu-item-selected {
-        background-color: none;
-        border-bottom-color: #1890ff;
-    }
-    .indexList {
-        border-left: none;
-    }
-} */
+.replyList .ant-list-item-meta-avatar {
+    display: block;
+}
+.indexList .ant-list-item-action {
+    margin-left: 50px;
+}
+.indexList .ant-list-item-meta {
+    min-width: 200px;
+    align-items: center;
+}
 
+.wrap .userAvatar {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 10px auto;
+}
+.wrap .userInfo {
+    text-align: center;
+    line-height: 24px;
+    padding-bottom: 10px;
+}
+.userList {
+    line-height: 32px;
+}
+.userList .ant-list-item {
+    position: relative;
+    display: block;
+}
+.userList .ant-list-item * {
+    vertical-align: middle;
+}
+.userList .username {
+    margin: 0 10px 0 5px;
+}
+.userList h4 {
+    display: inline-block;
+    margin: 0;
+}
+.userList time {
+    position: absolute;
+    top: 12px;
+    right: 0;
+}
+@media all and (max-width: 767px) {
+    .userList h4 {
+        display: block;
+    }
+}
 /* ------------------------- main-footer ------------------------ */
 #footer {
     text-align: center;
