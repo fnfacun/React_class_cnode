@@ -1,20 +1,48 @@
 import React from 'react';
-import data from './data';
+import { connect } from 'react-redux';
+import axios from 'axios';
 import TxtDetails from '../../common/components/txt_detail';
 import ReplyList from './reply_list';
 
-function Details() {
-    return (<div className="wrap">
-        <TxtDetails
-            loading={false}
-            data={data.data} 
-        />
-        <ReplyList
-            loading={false}
-            replies={data.data.replies} 
-            replyCount={data.data.reply_count}
-        />
-    </div>)
+class Details extends React.Component {
+    constructor(props){
+        super(props);
+        let { id } = this.props.match.params;
+        this.getData(id);
+    }
+    getData(id){
+        this.props.dispatch((dispatch)=>{
+            dispatch({
+                type: "DETAILS_UPDATA"
+            });
+            axios.get(`https://cnodejs.org/api/v1/topic/${id}`).then(res=>{
+                console.log(res.data)
+                dispatch({
+                    type: "DETAILS_UPDATA_SUCC",
+                    data: res.data
+                })
+            }).catch(error=>{
+                dispatch({
+                    type: "DETAILS_UPDATA_ERROR",
+                    data: error
+                })
+            })
+        })
+    }
+    render(){
+        let { loading, data } = this.props;
+        return (<div className="wrap">
+            <TxtDetails
+                loading={loading}
+                data={data} 
+            />
+            <ReplyList
+                loading={loading}
+                replies={data.replies} 
+                replyCount={data.reply_count}
+            />
+        </div>)
+    }
 };
 
-export default Details;
+export default connect(state=>state.details)(Details);

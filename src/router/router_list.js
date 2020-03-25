@@ -39,15 +39,15 @@ const routerList = [
     {
         path: '/details/:id',
         exact: true,
-        render: () => {
-            return <Details />
+        render: (props) => {
+            return <Details {...props} />
         }
     },
     {
         path: '/user/:id',
         exact: true,
-        render: () => {
-            return <User />
+        render: (props) => {
+            return <User {...props} />
         }
     }
 ];
