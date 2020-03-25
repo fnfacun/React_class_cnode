@@ -8,25 +8,33 @@ import TxtTag from '../../common/components/txtTag';
 class IndexList extends React.Component {
     constructor(props){
         super(props);
+        this.isStart = true;
         this.state = {
             page: 1
         }
-        this.getData(this.props.tab);
+        this.getData(this.props.tab, this.state.page);
     }
     // 是否重新渲染
-    shouldComponentUpdate(nextProps){
+    shouldComponentUpdate(nextProps, nextState){
+        this.isStart = false;
+        if(this.state.page !== nextState.page){
+            this.getData(nextProps.tab, nextState.page);
+            return false;
+        }
         if(this.props.tab !== nextProps.tab){
-            this.getData(nextProps.tab);
+            // 每次切换时都重置为第一页
+            this.state.page = 1;
+            this.getData(nextProps.tab, 1);
             return false;
         }
         return true
     }
-    getData(tab){
+    getData(tab, page){
         this.props.dispatch((dispatch)=>{
             dispatch({
                 type: "LIST_UPDATA"
             })
-            axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${this.state.page}&limit=15`).then(res=>{
+            axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${page}&limit=10`).then(res=>{
                 dispatch({
                     type: "LIST_UPDATA_SUCC",
                     data: res.data
@@ -41,9 +49,20 @@ class IndexList extends React.Component {
     };
     render(){
         let { data, loading } = this.props;
+        let pagination = {
+            current: this.state.page,
+            pageSize: 10,
+            total: 1000,
+            onChange: ((current)=>{
+                this.setState({
+                    page: current
+                })
+            })
+        }
         return (<List
             loading={loading}
             dataSource={data.data}
+            pagination={this.isStart? false: pagination}
             renderItem={item=>(
                 <List.Item actions={[
                     "回复:"+ item.reply_count,

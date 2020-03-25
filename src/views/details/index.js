@@ -16,7 +16,6 @@ class Details extends React.Component {
                 type: "DETAILS_UPDATA"
             });
             axios.get(`https://cnodejs.org/api/v1/topic/${id}`).then(res=>{
-                console.log(res.data)
                 dispatch({
                     type: "DETAILS_UPDATA_SUCC",
                     data: res.data

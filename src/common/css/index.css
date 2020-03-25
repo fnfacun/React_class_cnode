@@ -109,6 +109,9 @@
     line-height: 24px;
     padding-bottom: 10px;
 }
+.wrap .ant-card-head-title h1 {
+    float: left;
+}
 .userList {
     line-height: 32px;
 }
