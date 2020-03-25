@@ -26,13 +26,13 @@ let tab = [
     },{
         tab: "job",
         txt: "招聘",
-        color: "cyan",
-        isIndex: true
+        isIndex: true,
+        color: "cyan"
     },{
         tab: "dev",
         txt: "测试",
-        color: "lime",
-        isIndex: true
+        isIndex: true,
+        color: "lime"
     }
 ]
 
