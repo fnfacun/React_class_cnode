@@ -134,9 +134,19 @@
     top: 12px;
     right: 0;
 }
+.wrap .ant-card-head-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+.wrap .ant-card-head .ant-card-head-title h1{
+    white-space: normal;
+}
 @media all and (max-width: 767px) {
     .userList h4 {
         display: block;
+    }
+    .wrap .ant-card-head .ant-card-head-title h1{
+        font-size: 4vw;
     }
 }
 /* ------------------------- main-footer ------------------------ */

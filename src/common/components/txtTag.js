@@ -12,13 +12,12 @@ function getTab(data){
     return tab.find(item=>item.tab === nowTab);
 }
 
-export default class TxtTag extends React.Component {
-    render(){
-        console.log(this.props.data)
-        let nowTab = getTab(this.props.data);
-        if(this.props.data.tab === undefined){
-            return null;
-        }
-        return <Tag color={nowTab.color}>{nowTab.txt}</Tag>
+function TxtTag(props) {
+    let nowTab = getTab(props.data);
+    if(props.data.tab === undefined){
+        return null;
     }
+    return <Tag color={nowTab.color}>{nowTab.txt}</Tag>
 };
+
+export default TxtTag;
