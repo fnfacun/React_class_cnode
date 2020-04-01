@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import data from './data';
 import PublicCard from '../../common/components/public_card';
 
-function Book() {
-    return (<PublicCard data={data} />)
+export default class Book extends Component {
+    render(){
+        return (<PublicCard data={data} />)
+    }
 };
-
-export default Book;

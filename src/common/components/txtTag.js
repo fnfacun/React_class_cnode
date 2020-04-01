@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Tag } from 'antd';
 import tab from './tab';
 
@@ -12,12 +12,12 @@ function getTab(data){
     return tab.find(item=>item.tab === nowTab);
 }
 
-function TxtTag(props) {
-    let nowTab = getTab(props.data);
-    if(props.data.tab === undefined){
-        return null;
+class TxtTag extends Component {
+    render(){
+        let nowTab = getTab(this.props.data);
+        if(this.props.data.tab === undefined)return null;
+        return <Tag color={nowTab.color}>{nowTab.txt}</Tag>
     }
-    return <Tag color={nowTab.color}>{nowTab.txt}</Tag>
 };
 
 export default TxtTag;
