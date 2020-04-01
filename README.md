@@ -1,4 +1,4 @@
-# 基于 Antd3.x 和 React 的项目开发
+# 基于 Antd4 和 React 的项目开发
 
 ## 项目依赖使用
 - react
